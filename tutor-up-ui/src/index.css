@@ -1,38 +1,12 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+input {
+  border-radius: 8px;
+  padding: 5px;
+  border: 1px solid transparent;
 }
 
 button {
@@ -42,27 +16,120 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(202, 200, 200, 0.4);
   cursor: pointer;
   transition: border-color 0.25s;
+  height: 40px;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #303afd;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.page {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  background-color: #f2f2f2;
+}
+
+.login_page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_page_title {
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.login_block {
+  width: 450px;
+  height: 350px;
+  border: 1px solid rgba(202, 200, 200, 0.5);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login_field_title {
+  font-size: larger;
+  margin-bottom: 4px;
+}
+
+.login_field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.login_input {
+  height: 25px;
+}
+
+.login_create_account {
+  margin-top: 10px;
+}
+
+.courses_page {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.course {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 200px;
+  border: 1px solid rgba(202, 200, 200, 0.5);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.course:hover {
+  background-color: rgba(245, 245, 220, 0.7);
+  cursor: pointer;
+}
+
+.course_main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.course_main_left {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.course_title {
+  font-size: large;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.course_tutor {
+  font-size: larger;
+  font-weight: 500;
+}
+
+.course_price {
+  font-size: medium;
+
+}
+
+.course_footer {
+  display: flex;
+  justify-content: end;
 }
