@@ -1,40 +1,52 @@
-
 body {
   margin: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #333;
+  background-color: #f2f2f2;
 }
 
 input {
   border-radius: 8px;
   padding: 5px;
   border: 1px solid transparent;
+  border-color: #7f82b7;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: none;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
+  color: #00214d;
   font-family: inherit;
-  background-color: rgba(202, 200, 200, 0.4);
+  background-color: #00ebc7;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
   height: 40px;
 }
+
 button:hover {
   border-color: #303afd;
+  background-color: #00c4a9;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+
 .page {
   width: 100vw;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
-  background-color: #f2f2f2;
+  background: linear-gradient(135deg, #fffffe 0%, #e0f7fa 100%);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .login_page {
   flex-direction: column;
@@ -43,14 +55,18 @@ button:focus-visible {
 }
 
 .login_page_title {
-  font-size: large;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: xx-large;
   margin-bottom: 20px;
+  color: #00214d;
 }
 
 .login_block {
   width: 450px;
   height: 350px;
-  border: 1px solid rgba(202, 200, 200, 0.5);
+  background-color: #ffffff;
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -73,63 +89,308 @@ button:focus-visible {
 }
 
 .login_input {
-  height: 25px;
+  border: none;
+  border-bottom: 2px solid #00214d;
+  border-radius: 0;
+  padding: 5px 0;
+  background-color: transparent;
 }
 
 .login_create_account {
   margin-top: 10px;
 }
 
-.courses_page {
+
+.signup_page {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh; 
+  padding: 20px; 
+}
+
+.signup_block {
+  width: 450px;
+  background-color: #ffffff; 
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 50px; 
+  margin-bottom: 50px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.signup_title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: xx-large;
+  margin-bottom: 20px;
+  color: #00214d;
+}
+
+.signup_field_title {
+  font-size: larger;
+  margin-bottom: 4px;
+}
+
+.signup_field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.signup_input {
+  border: none;
+  border-bottom: 2px solid #00214d;
+  border-radius: 0;
+  padding: 5px 0;
+  background-color: transparent;
+}
+
+.signup_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.signup_button:hover {
+  background-color: #00c4a9;
+}
+
+
+.courses_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  padding-top: 50px;
+}
+
+.accepted_pending_container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.accepted_pending_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.accepted_pending_button:hover {
+  background-color: #00c4a9;
+}
+
+.accepted_pending_count {
+  font-weight: bold;
 }
 
 .course {
   display: flex;
   flex-direction: column;
   width: 450px;
-  height: 200px;
-  border: 1px solid rgba(202, 200, 200, 0.5);
+  min-height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  padding: 10px;
-  margin: 10px;
+  padding: 20px;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .course:hover {
   background-color: rgba(245, 245, 220, 0.7);
   cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .course_main {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .course_main_left {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
 }
 
 .course_title {
-  font-size: large;
+  font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 5px;
+  color: #00214d;
 }
 
 .course_tutor {
-  font-size: larger;
+  font-size: 1.2em;
   font-weight: 500;
+  color: #555;
 }
 
 .course_price {
-  font-size: medium;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #00ebc7;
+}
 
+.course_location {
+  font-size: 1em;
+  color: #777;
+  margin-bottom: 10px;
 }
 
 .course_footer {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
+  margin-top: auto;
 }
+
+.request_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 40px;
+}
+
+.request_button:hover {
+  background-color: #00c4a9;
+}
+
+
+.make_offer_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+  position: relative;
+  padding-top: 50px;
+}
+
+.requests_pending_container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.requests_pending_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.requests_pending_button:hover {
+  background-color: #00c4a9;
+}
+
+.requests_pending_count {
+  font-weight: bold;
+}
+
+.offer_form_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.offer_form_container {
+  width: 450px;
+  background-color: #ffffff;
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin: 20px;
+}
+
+.offer_form_title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: xx-large;
+  margin-bottom: 20px;
+  color: #00214d;
+  text-align: center;
+}
+
+.offer_form_field {
+  margin-bottom: 20px;
+}
+
+.offer_form_label {
+  font-size: larger;
+  margin-bottom: 5px;
+  display: block;
+  color: #00214d;
+}
+
+.offer_form_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.offer_form_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.offer_form_button:hover {
+  background-color: #00c4a9;
+}
+
+.offer_form_textarea {
+  height: 100px; 
+  resize: vertical;
+}
+

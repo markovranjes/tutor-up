@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Login } from "./pages/login";
 import { Signup } from "./pages/signup";
 import { Courses } from "./pages/courses";
+import { MakeOffer } from "./pages/make-offer";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/courses",
     element: <Courses />,
+  },
+  {
+    path: "/makeoffer",
+    element: <MakeOffer />,
   },
 ]);
 
