@@ -5,7 +5,18 @@ export const getAllFacultiesController = (req, res) => {
     if (error) {
       res.status(500).json({ error: error.message });
     } else {
-      res.status(200).json(results);
+      const mapped = results.map(
+        ({ id, name, university_id, university_name, university_city }) => ({
+          id,
+          name,
+          university: {
+            id: university_id,
+            name: university_name,
+            city: university_city,
+          },
+        })
+      );
+      res.status(200).json(mapped);
     }
   });
 };

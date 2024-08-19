@@ -25,3 +25,16 @@ connection.connect(function (err) {
 
   console.log("connected to database as id " + connection.threadId);
 });
+
+process.on("SIGINT", async () => {
+  console.log("Closing MySQL connection due to application termination...");
+  await connection.end();
+  console.log("MySQL connection closed.");
+  process.exit(0);
+});
+
+process.on("exit", async () => {
+  console.log("Application is exiting, closing MySQL connection...");
+  await connection.end();
+  console.log("MySQL connection closed.");
+});
