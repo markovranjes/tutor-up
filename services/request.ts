@@ -2,7 +2,7 @@ import { connection } from "../database";
 
 export const getAllRequests = (callback) => {
   const query =
-    "SELECT r.id, r.accepted, s.id as student_id, s.name as student_name, s.surname as student_surname, o.id as offer_id, o.title as offer_title, t.id as tutor_id, t.name as tutor_name, t.surname as tutor_surname, t.phone as tutor_phone FROM request r INNER JOIN student s ON r.Student_id=s.id INNER JOIN offer o ON r.Offer_id=r.id INNER JOIN tutor t ON o.Tutor_id=t.id ";
+    "SELECT DISTINCT r.id, r.accepted, s.id AS student_id, s.name AS student_name, s.surname AS student_surname, o.id AS offer_id, o.title AS offer_title, t.id AS tutor_id, t.name AS tutor_name, t.surname AS tutor_surname, t.phone AS tutor_phone FROM request r INNER JOIN student s ON r.Student_id = s.id INNER JOIN offer o ON r.Offer_id = o.id INNER JOIN tutor t ON o.Tutor_id = t.id";
   if (!connection) callback(new Error("Database connection error"), null);
 
   connection.query(query, callback);

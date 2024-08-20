@@ -7,7 +7,6 @@ export const loginController = async (req, res: Response) => {
   const { email, password: plain_password } = req.body;
 
   const password = await hashPassword(plain_password);
-  console.log(plain_password, password);
 
   getStudent(email, password, (error, student) => {
     if (error) {

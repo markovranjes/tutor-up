@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema tutor-up
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `tutor-up` DEFAULT CHARACTER SET utf8 ;
-USE `tutor-up` ;
+-- CREATE SCHEMA IF NOT EXISTS `tutor-up` DEFAULT CHARACTER SET utf8 ;
+USE `SISIII2024_89211012` ;
 
 -- -----------------------------------------------------
 -- Table `tutor-up`.`University`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`University` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`University` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `city` VARCHAR(255) NOT NULL,
@@ -31,7 +31,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Faculty`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Faculty` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Faculty` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `University_id` INT NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Faculty` (
   INDEX `fk_Faculty_University_idx` (`University_id` ASC),
   CONSTRAINT `fk_Faculty_University`
     FOREIGN KEY (`University_id`)
-    REFERENCES `tutor-up`.`University` (`id`)
+    REFERENCES `SISIII2024_89211012`.`University` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -48,7 +48,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Program`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Program` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Program` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `Faculty_id` INT NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Program` (
   INDEX `fk_Program_Faculty1_idx` (`Faculty_id` ASC) ,
   CONSTRAINT `fk_Program_Faculty1`
     FOREIGN KEY (`Faculty_id`)
-    REFERENCES `tutor-up`.`Faculty` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Faculty` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Tutor`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Tutor` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Tutor` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   `surname` VARCHAR(100) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Tutor` (
   INDEX `fk_Tutor_Program1_idx` (`Program_id` ASC) ,
   CONSTRAINT `fk_Tutor_Program1`
     FOREIGN KEY (`Program_id`)
-    REFERENCES `tutor-up`.`Program` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Program` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -86,7 +86,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Student`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Student` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Student` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   `surname` VARCHAR(100) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Student` (
   INDEX `fk_Student_Program1_idx` (`Program_id` ASC) ,
   CONSTRAINT `fk_Student_Program1`
     FOREIGN KEY (`Program_id`)
-    REFERENCES `tutor-up`.`Program` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Program` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -106,7 +106,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Subject`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Subject` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Subject` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `n_subject` VARCHAR(255) NOT NULL,
   `Program_id` INT NOT NULL,
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Subject` (
   INDEX `fk_Subject_Program1_idx` (`Program_id` ASC) ,
   CONSTRAINT `fk_Subject_Program1`
     FOREIGN KEY (`Program_id`)
-    REFERENCES `tutor-up`.`Program` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Program` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -123,7 +123,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Offer`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Offer` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Offer` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) NOT NULL,
   `description` TEXT NOT NULL,
@@ -137,12 +137,12 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Offer` (
   INDEX `fk_Offer_Subject1_idx` (`Subject_id` ASC) ,
   CONSTRAINT `fk_Offer_Tutor1`
     FOREIGN KEY (`Tutor_id`)
-    REFERENCES `tutor-up`.`Tutor` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Tutor` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Offer_Subject1`
     FOREIGN KEY (`Subject_id`)
-    REFERENCES `tutor-up`.`Subject` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Subject` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -151,7 +151,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `tutor-up`.`Request`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tutor-up`.`Request` (
+CREATE TABLE IF NOT EXISTS `SISIII2024_89211012`.`Request` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `accepted` TINYINT NOT NULL,
   `Student_id` INT NOT NULL,
@@ -161,12 +161,12 @@ CREATE TABLE IF NOT EXISTS `tutor-up`.`Request` (
   INDEX `fk_Request_Offer1_idx` (`Offer_id` ASC) ,
   CONSTRAINT `fk_Request_Student1`
     FOREIGN KEY (`Student_id`)
-    REFERENCES `tutor-up`.`Student` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Student` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Request_Offer1`
     FOREIGN KEY (`Offer_id`)
-    REFERENCES `tutor-up`.`Offer` (`id`)
+    REFERENCES `SISIII2024_89211012`.`Offer` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

@@ -1,11 +1,17 @@
+import { useNavigate } from "react-router-dom";
 import { Offer } from "../components/Offer";
 
 export const MakeOffer = () => {
+  const navigate = useNavigate();
+
+  const toRequests = () => {
+    navigate("/requests");
+  };
   return (
     <div className=" page make_offer_page">
       <div className="requests_pending_container">
-        <button className="requests_pending_button">
-          Requests Pending: <span className="requests_pending_count">0</span>
+        <button className="requests_pending_button" onClick={toRequests}>
+          Requests Pending
         </button>
       </div>
 

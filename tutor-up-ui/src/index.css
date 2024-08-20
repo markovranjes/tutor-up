@@ -31,6 +31,15 @@ button:hover {
   background-color: #00c4a9;
 }
 
+button:disabled {
+  background-color: lightgray;
+  color: gray;
+}
+
+button:disabled:hover {
+  background-color: lightgray;
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -94,6 +103,24 @@ button:focus-visible {
   border-radius: 0;
   padding: 5px 0;
   background-color: transparent;
+}
+.login_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  height: 40px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.login_button:hover {
+  background-color: #00c4a9;
 }
 
 .login_create_account {
@@ -394,3 +421,70 @@ button:focus-visible {
   resize: vertical;
 }
 
+.request {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  min-height: 150px;
+  background-color: #ffffff; 
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.request:hover {
+  background-color: rgba(245, 245, 220, 0.7);
+  cursor: pointer;
+  transform: translateY(-5px); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.request_main {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px; 
+}
+
+.request_main_left {
+  display: flex;
+  flex-direction: column;
+}
+
+.request_title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #00214d; 
+}
+
+.request_student {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #555; 
+}
+
+.request_footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto; 
+}
+
+.request_button {
+  background-color: #00ebc7;
+  color: #00214d;
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 40px;
+}
+
+.request_button:hover {
+  background-color: #00c4a9;
+}

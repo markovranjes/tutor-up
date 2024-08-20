@@ -17,7 +17,7 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: ["http://localhost:5173", "http://88.200.63.148:5173"],
   optionsSuccessStatus: 200,
 };
 
@@ -38,6 +38,6 @@ app.use("/subjects", subjectsRouter);
 app.use("/tutors", tutorsRouter);
 app.use("/login", loginRouter);
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Tutor app listening on port ${port}`);
 });

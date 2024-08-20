@@ -6,12 +6,12 @@ import { Login } from "./pages/login";
 import { Signup } from "./pages/signup";
 import { Courses } from "./pages/courses";
 import { MakeOffer } from "./pages/make-offer";
+import { Requests } from "./pages/requests";
+import { AcceptedRequests } from "./pages/accepted-requests";
+
+document.title = "Tutor UP";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
   {
     path: "/login",
     element: <Login />,
@@ -28,6 +28,15 @@ const router = createBrowserRouter([
     path: "/makeoffer",
     element: <MakeOffer />,
   },
+  {
+    path: "/requests",
+    element: <Requests />,
+  },
+  {
+    path: "/accepted-requests",
+    element: <AcceptedRequests />,
+  },
+  { path: "*", element: <Login /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
